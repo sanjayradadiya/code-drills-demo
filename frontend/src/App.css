@@ -1,38 +1,118 @@
-.App {
+.years {
+  background: #0a0a23;
+  color: #fff;
+}
+
+.years th {
+  padding: 0.5rem 0;
+  font-weight: bold;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+table-wrap {
+  padding: 0 0.75rem 1.5rem 0.75rem;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+table {
+  border-collapse: collapse;
+  border: 0;
+  width: 100%;
+  position: relative;
+  margin-top: 3rem;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+table caption {
+  color: #356eaf;
+  font-size: 1.3em;
+  font-weight: normal;
+  position: absolute;
+  top: -2.25rem;
+  left: 0.5rem;
 }
 
-.App-link {
-  color: #61dafb;
+tbody td {
+  width: 100vw;
+  min-width: 4rem;
+  max-width: 4rem;
+}
+tbody tr.title {
+  width: 100%;
+  background-image: linear-gradient(
+    to bottom,
+    #dfdfe2 1.845rem,
+    white 1.845rem
+  );
+}
+tbody tr.title th {
+  text-align: left;
+  padding: 0.5rem;
+}
+tbody td.space {
+  width: 100vw;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+tr.total {
+  border-top: 2px solid #0a0a23;
+  font-weight: bold;
+}
+tr.total td span.total {
+  padding: 0.25rem;
+  font-weight: bold;
+}
+
+tr.total th {
+  text-align: left;
+  padding: 0.5rem 0 0.25rem 0.5rem;
+}
+
+tr.total td {
+  text-align: right;
+  padding: 0.25rem;
+}
+
+tr.total td:last-of-type {
+  padding-right: 0.5rem;
+}
+
+tr.total:hover {
+  background-color: #99c9ff;
+}
+
+td.current {
+  font-style: italic;
+}
+
+tr th.name {
+  color: #000 !important;
+  font-size: 1em !important;
+  font-weight: bold !important;
+}
+
+tr.data th {
+  text-align: left;
+  padding-top: 0.3rem;
+  padding-left: 0.5rem;
+}
+
+tr.data th .description {
+  display: block;
+  font-weight: normal;
+  font-style: italic;
+  padding: 1rem 0 0.75rem;
+  margin-right: -13.5rem;
+}
+
+tr.data td {
+  vertical-align: top;
+  padding: 0.3rem 0.25rem;
+  text-align: center;
+}
+tr.data td.caption {
+  vertical-align: top;
+  padding: 0.3rem 0.25rem;
+  text-align: left;
+}
+
+tr.data td:last-of-type {
+  padding-right: 0.5rem;
 }

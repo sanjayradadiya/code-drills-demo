@@ -1,6 +1,7 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
+import { mockData } from './utils';
 
 describe('AppController', () => {
   let appController: AppController;
@@ -15,8 +16,16 @@ describe('AppController', () => {
   });
 
   describe('root', () => {
-    it('should return "Hello World!"', () => {
-      expect(appController.getHello()).toBe('Hello World!');
+    it('should return BalanceSheet', async () => {
+      global.fetch = jest.fn(() =>
+        Promise.resolve({
+          json: () => Promise.resolve(mockData),
+        }),
+      ) as jest.Mock;
+
+      const result = await appController.getBalanceSheet();
+      expect(result).toEqual(mockData);
+      expect(fetch).toHaveBeenCalledWith('http://localhost:3006/api.xro/2.0/Reports/BalanceSheet');
     });
   });
 });
