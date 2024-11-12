@@ -25,7 +25,7 @@ describe('AppController', () => {
 
       const result = await appController.getBalanceSheet();
       expect(result).toEqual(mockData);
-      expect(fetch).toHaveBeenCalledWith('http://localhost:3006/api.xro/2.0/Reports/BalanceSheet');
+      expect(fetch).toHaveBeenCalledWith('http://localhost:3005/api.xro/2.0/Reports/BalanceSheet');
     });
   });
 });
