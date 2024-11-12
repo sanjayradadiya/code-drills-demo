@@ -25,6 +25,9 @@ describe('renders learn react link', () => {
     await waitFor(async() => {
       expect(await screen.findByText('Total Bank')).toBeInTheDocument()
     })
+    await waitFor(async() => {
+      expect(await screen.findByText('No data found')).toBeInTheDocument()
+    })
   });
 
 });

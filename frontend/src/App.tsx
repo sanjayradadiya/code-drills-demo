@@ -5,7 +5,7 @@ import TableBody from './components/TableBody';
 
 const BalanceSheetTable = ({ data }: { data: any }) => {
   const rows = data?.Reports?.[0]?.Rows;
-console.log('rows ==>', data)
+
   if (rows?.length === 0) {
     return null;
   }
@@ -23,10 +23,8 @@ export default function App() {
   const [data, setData] = useState([]);
 
   const handleBalanceSheetFetch = useCallback(async () => {
-    const _data = await fetch('http://localhost:3005/BalanceSheet');
-    console.log('_data', _data)
-    const balanceSheet = await _data.json();
-    console.log('balanceSheet', balanceSheet)
+    const res = await fetch(`${process.env.REACT_APP_BACKEND_URL}/BalanceSheet`);
+    const balanceSheet = await res.json();
     setData(balanceSheet);
   }, []);
 
