@@ -2,7 +2,7 @@ const SectionRows = ({ row }: { row: any }) => {
   if (row?.Rows?.length === 0) {
     return (
       <tr className="data">
-        <td colSpan={4}>
+        <td colSpan={4} className="no-data">
           <span>No data found</span>
         </td>
       </tr>

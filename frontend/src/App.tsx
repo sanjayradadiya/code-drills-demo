@@ -20,10 +20,12 @@ const BalanceSheetTable = ({ data }: { data: any }) => {
 };
 
 export default function App() {
-  const [data, setData] = useState([]);
+  const [data, setData] = useState<any>([]);
 
   const handleBalanceSheetFetch = useCallback(async () => {
-    const res = await fetch(`${process.env.REACT_APP_BACKEND_URL}/BalanceSheet`);
+    const res = await fetch(
+      `${process.env.REACT_APP_BACKEND_URL}/BalanceSheet`,
+    );
     const balanceSheet = await res.json();
     setData(balanceSheet);
   }, []);
@@ -31,5 +33,14 @@ export default function App() {
   useEffect(() => {
     handleBalanceSheetFetch();
   }, []);
-  return <BalanceSheetTable data={data} />;
+
+  const Report = data?.Reports?.[0];
+  return (
+    <div className="container">
+      <h2>{Report.ReportName}</h2>
+      <h3>{Report?.ReportTitles?.join(', ')}</h3>
+      <h4>{Report.ReportDate}</h4>
+      <BalanceSheetTable data={data} />
+    </div>
+  );
 }
