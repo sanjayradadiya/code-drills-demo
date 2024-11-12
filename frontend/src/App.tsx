@@ -23,9 +23,7 @@ export default function App() {
   const [data, setData] = useState<any>([]);
 
   const handleBalanceSheetFetch = useCallback(async () => {
-    const res = await fetch(
-      `${process.env.REACT_APP_BACKEND_URL}/BalanceSheet`,
-    );
+    const res = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/balance-sheet`);
     const balanceSheet = await res.json();
     setData(balanceSheet);
   }, []);
