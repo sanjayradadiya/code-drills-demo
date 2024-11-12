@@ -15,6 +15,7 @@ export const mockData = {
           {
             RowType: "Section",
             Title: "Assets",
+            Rows: []
           },
           {
             RowType: "Section",
